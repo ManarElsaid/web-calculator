@@ -16,3 +16,5 @@ utiliy / directory contains utiliy functions
 utiliy.js
 isValidOP - checks the validation of the operators
 calc - calculate two numbers
+isNoArgs - checks if no arguments provided
+help - preview help message
