@@ -1,20 +1,16 @@
 #!/usr/bin/node
 
-const { clac, isValidOp} = require("./utility/utility.js");
-
-
-if (process.argv.length < 3) {
-    console.error(`Usage: node cal.js <num1> <operator1> <num2> [<operator2> <num3> ...]`);
-    process.exit(1);
-}
+const { clac, isValidOp, isNoArgs, help} = require("./utility/utility.js");
 
 let args = process.argv.slice(2);
+isNoArgs(args);
+help(args);
 
 //check if the first argument is a number
-if (isNaN(args[0])) {
-    console.error(`Usage: node cal.js <num1> <operator1> <num2> [<operator2> <num3> ...]`);
-    process.exit(1);
-}
+// if (isNaN(args[0])) {
+//     console.error(`Usage: node cal.js <num1> <operator1> <num2> [<operator2> <num3> ...]`);
+//     process.exit(1);
+// }
 
 //parse arguments to numbers and operators
 let nums = [];
@@ -51,7 +47,6 @@ if (nums.length === ops.length + 1) {
     console.log(`result is ${result}`);
 } else {
     console.error('Invalid Format');
-    console.error(`Usage: node cal.js <num1> <operator1> <num2> [<operator2> <num3> ...]`);
     process.exit(1);
 } 
 
